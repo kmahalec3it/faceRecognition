@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Invoice Recognition Result</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header id="header1">
+        <nav class="navbar">
+          <div class="left-heading">
+            <h4>GPT for Enterprise Data | Demo by C3IT</h4>
+          </div>
+          <div class="right-heading">
+            <h4>FormAnalyze - Receipt & invoice</h4>
+            <img src="/static/GitHub-Mark.png" alt="Logo">
+          </div>
+        </nav>
+      </header>
+      
+      <br>
+      <br>
+      <br>
+      <br>  <br>
+    
+        <header id="c3">
+            <nav>
+              <div class="logo">
+                <img src="/static/logo.jpg" alt="Logo">
+                <h1 id="slo">IT THAT MAKES YOU COMPETITIVE</h1>
+              </div>
+              <ul class="nav-links">
+              </ul>
+            </nav>
+          </header>
+
+        <br>
+        <br>
+        <br>
+          <div id="re" style="display: flex;">
+            <div style="flex: 1;">
+                <h1 id="invoice-heading">Invoice Image file</h1>
+                <img src="{{ invoice_url }}" alt="Invoice Image" width="400" id="invoice-image">
+            </div>
+            <div style="flex: 1;">
+              <h1 id="invoice-heading">Invoice Recognition Result</h1>
+                {% if csv_data %}
+                <table id="invoice-table">
+                    <tr>
+                        <th style="background-color: rgba(4, 0, 255, 0.629);color:rgb(255, 255, 255)">Field</th>
+                        <th style="background-color: rgba(4, 0, 255, 0.629);color:rgb(255, 255, 255)">Data</th>
+                    </tr>
+                    <tr>
+                        <td>Vendor Name</td>
+                        <td>{{ csv_data[0] }}</td>
+                    </tr>
+                    <tr>
+                        <td>Vendor Address</td>
+                        <td>{{ csv_data[1] }}</td>
+                    </tr>
+                    <tr>
+                        <td>Customer Name</td>
+                        <td>{{ csv_data[2] }}</td>
+                    </tr>
+                    <tr>
+                        <td>Customer Address</td>
+                        <td>{{ csv_data[3] }}</td>
+                    </tr>
+                    <tr>
+                        <td>Customer Address Recipient</td>
+                        <td>{{ csv_data[4] }}</td>
+                    </tr>
+                    <tr>
+                        <td>Invoice ID</td>
+                        <td>{{ csv_data[5] }}</td>
+                    </tr>
+                    <tr>
+                        <td>Invoice Date</td>
+                        <td>{{ csv_data[6] }}</td>
+                    </tr>
+                    <tr>
+                        <td>Invoice Total</td>
+                        <td>{{ csv_data[7] }}</td>
+                    </tr>
+                    <tr>
+                        <td>Due Date</td>
+                        <td>{{ csv_data[8] }}</td>
+                    </tr>
+                </table>
+                {% endif %}
+            </div>
+        </div>
+        
+</body>
+</html>

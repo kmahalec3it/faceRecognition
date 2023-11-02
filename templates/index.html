@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RFQ</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    
+  <header id="header1">
+    <nav class="navbar">
+      <div class="left-heading">
+        <h4>RFQ_Reading</h4>
+      </div>
+      <div class="right-heading">
+        <h4>RFQ</h4>
+        <!-- <img src="/static/GitHub-Mark.png" alt="Logo"> -->
+      </div>
+    </nav>
+  </header>
+  
+  <br>
+  <br>
+  <br>
+  <br>  <br>
+
+    <div id="urr">
+    <h1>RFQ Reader</h1>
+    <form method="POST" action="/api/rfq">
+        <label for="invoice_id">Ask Something...</label><br><br>
+        <input type="text" id="question" name="question" required placeholder="Enter your question here "><br><br>
+        <div class="buttons">
+        <input type="submit" value="Submit" class="btn-hover color-1">
+
+        {% if result %}
+         <p>Question: {{ question }}</p><br>
+         <div style="background-color:white;" class="form-group mb-2 col-md-6 border rounded " >
+          <!-- <img src="/static/star_icon.png" width="30" height="30"> -->
+          <br>
+        <br><p class="form-group mb-2 col-md-6" style="margin-left: 20px;"> <strong>Response:</strong> {{ result }}</p>
+        {% endif %} 
+        <br>
+    </div>
+    </form>
+      </div>
+</body>
+</html>
